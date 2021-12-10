@@ -18,7 +18,7 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login
     - run: |
-        git push heroku master:refs/heads/main 
+        git push heroku master 
     - uses: akhileshns/heroku-deploy@master
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
