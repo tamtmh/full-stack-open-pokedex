@@ -17,13 +17,10 @@ jobs:
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login
-    - run: |
-        heroku git:remote -a fullstackcicd
-        git push heroku master 
     - uses: akhileshns/heroku-deploy@master
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: "fullstackcicd"
+        heroku_app_name: "cicdfullstack"
         heroku_email: "tampv@tmh-techlab.vn"
 
 
