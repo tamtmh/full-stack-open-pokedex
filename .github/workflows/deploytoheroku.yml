@@ -18,6 +18,7 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login
     - run: |
+        heroku git:remote -a fullstackcicd
         git push heroku master 
     - uses: akhileshns/heroku-deploy@master
       with:
