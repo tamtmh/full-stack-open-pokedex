@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
   simple_deployment_pipeline:
@@ -20,4 +23,24 @@ jobs:
       - name: build
         run: yarn build
       - name: test
-        run: yarn test   
+        run: yarn test 
+  build:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to Heroku Container registry
+        env: 
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login 
+
+      - uses: akhileshns/heroku-deploy@v3.8.8
+        with:
+          heroku_email: "tampv@tmh-techlab.vn"
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: cicdapps
+          branch: HEAD
+          useforce: false
+          dynamicFiles: false
+                
+        

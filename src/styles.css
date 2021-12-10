@@ -82,7 +82,7 @@ footer {
 .pokemon-image {
   min-height: 150;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
