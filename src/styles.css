@@ -90,7 +90,7 @@ footer {
 
 .pokemon-name {
   font-family: "Open Sans Condensed", "Open Sans";
-  font-size: 24px;
+  font-size: 24;
   font-weight: bold;
   text-align: center;
   text-transform: capitalize;
