@@ -23,6 +23,8 @@ jobs:
           branch: HEAD
           useforce: false
           dynamicFiles: false
+          healthcheck: "https://cicdapps.herokuapp.com/health"
+          checkstring: "ok"
 
 
       
